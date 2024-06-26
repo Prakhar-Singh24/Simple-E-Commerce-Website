@@ -64,11 +64,11 @@
                 cart.forEach(cartItem => {
                     total += cartItem.product.price * cartItem.quantity;
                     paymentDetails.innerHTML += `
-                        <p>${cartItem.product.name} (${cartItem.quantity}) - $${(cartItem.product.price * cartItem.quantity).toFixed(2)}</p>
+                        <p>${cartItem.product.name} (${cartItem.quantity}) - ₹${(cartItem.product.price * cartItem.quantity).toFixed(2)}</p>
                     `;
                 });
 
-                paymentDetails.innerHTML += `<p><strong>Total: $${total.toFixed(2)}</strong></p>`;
+                paymentDetails.innerHTML += `<p><strong>Total: ₹${total.toFixed(2)}</strong></p>`;
             } else {
                 const productId = params.get("productId");
                 const productName = params.get("productName");
@@ -77,7 +77,7 @@
                 if (productId && productName && productPrice) {
                     paymentDetails.innerHTML = `
                         <p>Product: ${productName}</p>
-                        <p>Price: $${parseFloat(productPrice).toFixed(2)}</p>
+                        <p>Price: ₹${parseFloat(productPrice).toFixed(2)}</p>
                     `;
                 } else {
                     paymentDetails.innerHTML = "<p>No items to purchase.</p>";
